@@ -119,9 +119,10 @@ async function main() {
   console.log('  (can mang, tat Choi-Ngay.bat truoc khi chay)');
   console.log('==============================================');
 
-  // 1. Server
+  // 1. Server (submodule - detached HEAD: fetch + checkout thay vi pull)
   run('git checkout -- package-lock.json', SHOWDOWN_DIR);
-  run('git pull --ff-only', SHOWDOWN_DIR);
+  run('git fetch --depth 1 origin master', SHOWDOWN_DIR);
+  run('git checkout -q FETCH_HEAD', SHOWDOWN_DIR);
   run('node build', SHOWDOWN_DIR);
 
   // Kiem tra config offline con khong (config.js la file ignored, git pull khong xoa)
@@ -131,8 +132,9 @@ async function main() {
   }
   log('Server xong.');
 
-  // 2. Client
-  run('git pull --ff-only', CLIENT_TMP);
+  // 2. Client (submodule)
+  run('git fetch --depth 1 origin master', CLIENT_TMP);
+  run('git checkout -q FETCH_HEAD', CLIENT_TMP);
   run('node build', CLIENT_TMP);
 
   // 3. Copy file moi sang client/ (giu lai index.html + config da patch)
@@ -194,6 +196,8 @@ Config.testclient = true;
 
   console.log('==============================================');
   console.log('  XONG! Mo Choi-Ngay.bat de choi ban moi.');
+  console.log('  (Neu muon up len GitHub: git add showdown client-tmp,');
+  console.log('   git commit -m "Bump Smogon", git push)');
   console.log('==============================================');
 }
 
