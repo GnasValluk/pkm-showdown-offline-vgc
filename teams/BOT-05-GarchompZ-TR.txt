@@ -1,0 +1,59 @@
+Farigiraf @ Grassy Seed
+Ability: Armor Tail
+Level: 50
+EVs: 32 HP / 32 SpA / 2 SpD
+Quiet Nature
+- Trick Room
+- Psychic
+- Hyper Voice
+- Protect
+
+Rillaboom @ Life Orb
+Ability: Grassy Surge
+Level: 50
+EVs: 32 HP / 32 Atk / 2 Def
+Adamant Nature
+- Fake Out
+- Grassy Glide
+- Wood Hammer
+- Protect
+
+Sylveon @ Fairy Feather
+Ability: Pixilate
+Level: 50
+EVs: 32 HP / 32 SpA / 2 SpD
+Modest Nature
+- Hyper Voice
+- Calm Mind
+- Protect
+- Helping Hand
+
+Camerupt @ Cameruptite
+Ability: Solid Rock
+Level: 50
+EVs: 32 HP / 32 SpA / 2 SpD
+Quiet Nature
+- Eruption
+- Heat Wave
+- Earth Power
+- Protect
+
+Garchomp @ Garchompite Z
+Ability: Rough Skin
+Level: 50
+EVs: 32 Atk / 32 Spe / 2 HP
+Jolly Nature
+- Earthquake
+- Dragon Claw
+- Swords Dance
+- Protect
+
+Incineroar @ Sitrus Berry
+Ability: Intimidate
+Level: 50
+EVs: 32 HP / 32 SpD / 2 Def
+Careful Nature
+- Fake Out
+- Flare Blitz
+- Parting Shot
+- Protect
