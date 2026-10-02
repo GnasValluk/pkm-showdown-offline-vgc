@@ -1,0 +1,8 @@
+[submodule "showdown"]
+	path = showdown
+	url = https://github.com/smogon/pokemon-showdown.git
+	branch = master
+[submodule "client-tmp"]
+	path = client-tmp
+	url = https://github.com/smogon/pokemon-showdown-client.git
+	branch = master
