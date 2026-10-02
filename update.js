@@ -113,6 +113,34 @@ function patchIndexHtml() {
   log('Da patch client/index.html (offline, localhost:8000).');
 }
 
+function patchLoginOffline() {
+  // Giu patch login offline sau moi lan update (giong patch index.html)
+  const f = path.join(CLIENT_DIR, 'js', 'client-main.js');
+  let js = fs.readFileSync(f, 'utf8');
+  if (js.includes('OFFLINE-LOGIN')) {
+    log('Patch login offline da co.');
+    return;
+  }
+  const oldCode = 'this.loggingIn=name;\nthis.update(null);\nPSLoginServer.rawQuery(';
+  if (!js.includes(oldCode)) {
+    log('CANH BAO: khong tim thay cho patch login (client doi code?), login offline co the ket.');
+    return;
+  }
+  const newCode = 'this.loggingIn=name;\nthis.update(null);\n' +
+    '// OFFLINE-LOGIN: server local (localhost) khong co loginserver -> gui /trn truc tiep\n' +
+    'var _lh=(typeof PS!=="undefined"&&PS.server&&PS.server.host)||"";\n' +
+    'if(_lh==="localhost"||_lh==="127.0.0.1"||_lh===""){\n' +
+    'PS.send("/trn "+name);\n' +
+    '_this5.loggingIn=null;\n' +
+    '_this5.update({success:true});\n' +
+    'return;\n' +
+    '}\n' +
+    'PSLoginServer.rawQuery(';
+  js = js.replace(oldCode, newCode);
+  fs.writeFileSync(f, js);
+  log('Da patch login offline (js/client-main.js).');
+}
+
 async function main() {
   console.log('==============================================');
   console.log('  CAP NHAT OFFLINE THEO SMOGON MOI NHAT');
@@ -146,6 +174,9 @@ async function main() {
     const s = path.join(CLIENT_SRC, f);
     if (fs.existsSync(s)) fs.copyFileSync(s, path.join(CLIENT_DIR, f));
   }
+
+  // 3b. Patch login offline (dat ten la vao thang, khong xin token online)
+  patchLoginOffline();
 
   // 4. Tai lai data + chat-formatter (can mang 1 lan, xong choi offline)
   const files = ['graphics.js', 'commands.js', 'pokedex.js', 'moves.js', 'items.js',

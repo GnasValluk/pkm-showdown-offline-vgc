@@ -719,6 +719,14 @@ return;
 }
 this.loggingIn=name;
 this.update(null);
+// OFFLINE-LOGIN: server local (localhost) khong co loginserver -> gui /trn truc tiep
+var _lh=(typeof PS!=="undefined"&&PS.server&&PS.server.host)||"";
+if(_lh==="localhost"||_lh==="127.0.0.1"||_lh===""){
+PS.send("/trn "+name);
+_this5.loggingIn=null;
+_this5.update({success:true});
+return;
+}
 PSLoginServer.rawQuery(
 'getassertion',{userid:userid,challstr:this.challstr}
 ).then(function(res){
