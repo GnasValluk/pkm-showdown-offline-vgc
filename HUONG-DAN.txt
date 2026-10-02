@@ -15,11 +15,13 @@ Format: [Gen 9 Champions] VGC 2026 Reg M-C (game Pokemon Champions)
 CACH CHOI (chi can Node.js)
 --------------------------
 1. Cai Node.js LTS tu https://nodejs.org (can 1 lan).
-2. Double-click file:  Choi-Ngay.bat
+2. Double-click file:  GAME.EXE
+3. Bam nut:  CHOI NGAY (Start)
    (tu chay server game + bot + web, TU MO trinh duyet toi
    http://localhost:8080 - neu khong tu mo, copy link nay
-   vao Chrome/Edge thu cong)
-3. Trang web mo ra: http://localhost:8080
+   vao Chrome/Edge thu cong. Bo tick "Tu mo trinh duyet"
+   neu khong muon tu mo.)
+4. Trang web mo ra: http://localhost:8080
 3. Trang web mo ra: http://localhost:8080
    - Chon ten bat ky (khach, khong can dang nhap).
    - Vao Teambuilder -> New Team -> format "[Gen 9 Champions] VGC 2026 Reg M-C"
@@ -39,15 +41,15 @@ CACH CHOI NHANH KHONG CAN TEAM RIENG
 
 MUON TAT (DUNG CHOI)
 --------------------
-- Double-click file:  Dung-Lai.bat
-  (tat sach server + bot + web, giai phong port 8000/8080)
-- Hoac tat cua so den cua Choi-Ngay.bat bang Ctrl+C.
-- Khong tat bang cach bam X de tranh sot tien trinh giu port.
+- Bam nut  DUNG (Stop)  trong GAME.EXE,
+  hoac TAT CUA SO GAME - server tu tat theo.
+- Khong can tat bang cach khac.
 
 FILE QUAN TRONG
 ---------------
-- Choi-Ngay.bat ......... Mo la choi (khuyen dung)
-- Dung-Lai.bat .......... Tat sach khi khong choi nua
+- GAME.EXE .............. Mo la choi (bam CHOI NGAY / DUNG)
+- GAME.cs ............... Source cua GAME.EXE (bien dich lai:
+  csc /target:winexe /out:GAME.EXE GAME.cs)
 - Cap-Nhat.bat .......... Cap nhat theo Smogon moi nhat (can mang)
 - start.js .............. Chay bang `node start.js` (tuong duong .bat)
 - bot/bot.js ............ Bot VGC (tu nhan challenge, AI doi)
@@ -62,7 +64,7 @@ Cach 1 (khuyen dung): double-click file  Cap-Nhat.bat
   - Tu: git pull + build server, git pull + build client,
     copy giao dien moi, tai lai data, patch offline, validate team.
   - Xong mo Choi-Ngay.bat choi ban moi ngay.
-  - Tat Choi-Ngay.bat truoc khi chay Cap-Nhat.bat.
+  - Tat GAME.EXE (nut DUNG) truoc khi chay Cap-Nhat.bat.
 
 Cach 2 (thu cong):
   cd showdown  ->  git pull  ->  node build

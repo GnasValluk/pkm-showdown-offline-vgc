@@ -124,7 +124,8 @@ async function main() {
     const url = `http://localhost:${WEB_PORT}`;
     log('WEB', `San sang! Mo trinh duyet: ${url}`);
     log('WEB', 'Chon ten bat ky (khach) -> chon team VGC -> thach dau OfflineBot');
-    openBrowser(url);
+    if (!process.env.PS_NO_BROWSER) openBrowser(url);
+    else log('WEB', '(Bo qua tu mo trinh duyet theo tuy chon)');
   });
 
   // Tat sach khi Ctrl+C

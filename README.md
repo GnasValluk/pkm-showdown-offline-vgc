@@ -4,9 +4,10 @@ Bản Pokémon Showdown **offline, mở là chơi với bot**, format **[Gen 9 C
 
 ## Chơi ngay (Windows + Node.js LTS)
 
+Double-click **`GAME.EXE`** → bấm **▶ CHƠI NGAY** → trình duyệt tự mở `http://localhost:8080`.
+Tắt cửa sổ GAME (hoặc bấm **■ DỪNG**) là server tắt theo.
+
 ```bat
-Choi-Ngay.bat    :: chay server + bot + web, tu mo trinh duyet
-Dung-Lai.bat     :: tat sach khi nghi
 Cap-Nhat.bat     :: cap nhat theo Smogon moi nhat (can mang)
 ```
 
@@ -23,7 +24,7 @@ Mở `http://localhost:8080` → chọn tên bất kỳ → import team mẫu tr
 | `client/` | Web offline đã build + bundle data |
 | `bot/bot.js` | Bot VGC doubles (Mega, target, switch) |
 | `teams/` | 3 team mẫu hợp lệ Reg M-C (Stat Points 66) |
-| `start.js` / `client-server.js` | Khởi động 1-click |
+| `GAME.EXE` / `GAME.cs` | App 1-click: bấm CHƠI NGAY / DỪNG, tắt app là tắt server |
 | `update.js` | Đồng bộ bản mới + patch offline + validate team |
 | `client/style/custom-offline.css` | Theme riêng (update không ghi đè) |
 
