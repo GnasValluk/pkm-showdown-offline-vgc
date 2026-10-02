@@ -1,0 +1,12 @@
+# Deps
+node_modules/
+
+# Runtime
+.pids/
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

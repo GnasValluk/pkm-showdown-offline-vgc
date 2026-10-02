@@ -1,0 +1,98 @@
+POKEMON SHOWDOWN OFFLINE - VGC 2026 REGULATION M-C
+================================================
+Ban server + client moi nhat (git pull ngay 02/10/2026).
+Format: [Gen 9 Champions] VGC 2026 Reg M-C (game Pokemon Champions)
+  - Danh doi (doubles), mang 6 chon 4
+  - Stat Points: toi da 32/chi so, tong 66 (KHONG phai EV 508 nhu VGC cu)
+  - IV phai 31 het
+  - Mega duoc phep, gom 6 Mega moi M-C:
+    Mega Salamence, Mega Golisopod, Mega Baxcalibur,
+    Mega Absol Z, Mega Garchomp Z, Mega Lucario Z
+  - Nhieu item cu bi cam o Champions (Assault Vest, Choice Specs,
+    Covert Cloak, Safety Goggles...). Team mau trong thu muc teams/
+    da sua dung luat, validate OK.
+
+CACH CHOI (chi can Node.js)
+--------------------------
+1. Cai Node.js LTS tu https://nodejs.org (can 1 lan).
+2. Double-click file:  Choi-Ngay.bat
+   (tu chay server game + bot + web, TU MO trinh duyet toi
+   http://localhost:8080 - neu khong tu mo, copy link nay
+   vao Chrome/Edge thu cong)
+3. Trang web mo ra: http://localhost:8080
+3. Trang web mo ra: http://localhost:8080
+   - Chon ten bat ky (khach, khong can dang nhap).
+   - Vao Teambuilder -> New Team -> format "[Gen 9 Champions] VGC 2026 Reg M-C"
+     -> Import team mau tu thu muc teams/ (copy file .txt -> paste -> Save).
+   - Vao Lobby, tim user "OfflineBot" trong danh sach online,
+     bam ten -> Challenge -> chon format VGC 2026 Reg M-C + team cua ban -> Fight!
+   - Bot tu nhan loi va danh (co Mega, chon muc tieu doi thong minh).
+   - Neu khong thay bot: doi 5-10s (bot dang ket noi), hoac PM "/challenge"
+     truc tiep khong can doi bot online.
+
+CACH CHOI NHANH KHONG CAN TEAM RIENG
+------------------------------------
+- Vao http://localhost:8080 -> Play -> "[Gen 9 Champions] Random Doubles Battle"
+  -> Find Battle? Bot khong ho tro random ladder, hay challenge truc tiep nhu tren.
+- Hoac mo 2 tab cung trinh duyet, dat 2 ten khac nhau, tu dau voi nhau
+  (test team, khong can bot).
+
+MUON TAT (DUNG CHOI)
+--------------------
+- Double-click file:  Dung-Lai.bat
+  (tat sach server + bot + web, giai phong port 8000/8080)
+- Hoac tat cua so den cua Choi-Ngay.bat bang Ctrl+C.
+- Khong tat bang cach bam X de tranh sot tien trinh giu port.
+
+FILE QUAN TRONG
+---------------
+- Choi-Ngay.bat ......... Mo la choi (khuyen dung)
+- Dung-Lai.bat .......... Tat sach khi khong choi nua
+- Cap-Nhat.bat .......... Cap nhat theo Smogon moi nhat (can mang)
+- start.js .............. Chay bang `node start.js` (tuong duong .bat)
+- bot/bot.js ............ Bot VGC (tu nhan challenge, AI doi)
+- teams/*.txt ........... 3 team mau hop le Reg M-C (1 cua bot + 2 cua ban)
+- client/ ............... Web offline (da build + bundle data)
+- showdown/ ............. Source server goc Smogon (co the `git pull` update)
+- client-tmp/ ........... Source client goc (de update)
+
+CAP NHAT BAN MOI NHAT (CAN MANG 1 LUC)
+--------------------------------------
+Cach 1 (khuyen dung): double-click file  Cap-Nhat.bat
+  - Tu: git pull + build server, git pull + build client,
+    copy giao dien moi, tai lai data, patch offline, validate team.
+  - Xong mo Choi-Ngay.bat choi ban moi ngay.
+  - Tat Choi-Ngay.bat truoc khi chay Cap-Nhat.bat.
+
+Cach 2 (thu cong):
+  cd showdown  ->  git pull  ->  node build
+  cd ..\client-tmp  ->  git pull  ->  node build
+  (sau do chay Cap-Nhat.bat mot lan de dong bo client/data,
+   hoac chay node update.js truc tiep)
+
+Luu y:
+- File showdown/config/config.js la cau hinh rieng (khong nam trong git),
+  git pull khong xoa mat che do offline (noguestsecurity...).
+- Neu git pull bao loi do file package-lock.json bi doi,
+  Cap-Nhat.bat tu xu ly (checkout file do truoc khi pull).
+- Sau khi Smogon sua luat/format (VD doi sang Reg moi),
+  update.js se validate lai 3 team mau va canh bao neu team het hop le.
+
+KHONG CO MANG CO CHOI DUOC KHONG?
+---------------------------------
+- Co. Sau khi mo Choi-Ngay.bat, tat ca logic tran dau chay o localhost.
+- Web load tu localhost:8080 (da bundle san data/js/css).
+- Chi co hinh sprite/animation load tu play.pokemonshowdown.com neu co mang;
+  mat mang van danh binh thuong, chi thieu vai hinh (khong anh huong gameplay).
+
+LOI THUONG GAP
+--------------
+- Port 8000/8080 bi chiem: tat tab/server cu, hoac doi port:
+  set PS_CLIENT_PORT=8090 && node start.js
+- Bot ten "Guest": cho 3-5s de bot doi ten thanh OfflineBot.
+- Team bao invalid: nho dung Stat Points (VD: 32 HP / 32 Atk / 2 Def = 66),
+  IV 31 het, item khong trung (Item Clause), item phai co trong Champions.
+- Muon lam .exe: dung cong cu Bat To Exe Converter tro Choi-Ngay.bat -> .exe,
+  hoac chay `npm install -g pkg` roi `pkg start.js` (nang cao).
+
+Chuc vui!

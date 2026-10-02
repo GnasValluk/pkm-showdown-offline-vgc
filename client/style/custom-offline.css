@@ -1,0 +1,175 @@
+/* ============================================================
+   OFFLINE VGC THEME - Reskin rieng cho ban offline
+   File nay KHONG bi update.js ghi de (chi copy tu source sang,
+   khong xoa file rieng). Sua thoai mai.
+   ============================================================ */
+
+:root {
+  --vgc-bg0: #0b1020;
+  --vgc-bg1: #131a30;
+  --vgc-bg2: #1b2440;
+  --vgc-accent: #e3350d;      /* do Pokedex */
+  --vgc-accent2: #ffcb05;     /* vang Pokemon */
+  --vgc-blue: #2a75bb;        /* xanh Pokemon */
+  --vgc-text: #eef1f8;
+  --vgc-muted: #9aa5c4;
+  --vgc-card: rgba(255, 255, 255, 0.06);
+  --vgc-border: rgba(255, 255, 255, 0.12);
+  --vgc-radius: 12px;
+}
+
+/* ---- Nen tong ---- */
+html, body {
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(227, 53, 13, 0.18), transparent 60%),
+    radial-gradient(1000px 700px at 10% 110%, rgba(42, 117, 187, 0.22), transparent 60%),
+    linear-gradient(180deg, var(--vgc-bg0), var(--vgc-bg1)) !important;
+  color: var(--vgc-text);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+}
+
+/* ---- Header ---- */
+#header, .header {
+  background: linear-gradient(90deg, #101736 0%, #1b2440 60%, #3a1113 100%) !important;
+  border-bottom: 2px solid var(--vgc-accent);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.5);
+}
+#header .logo {
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+}
+.maintabbarbottom {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* ---- Tab phong ---- */
+.tabbar a.button, .tabbar .button {
+  background: var(--vgc-card) !important;
+  border: 1px solid var(--vgc-border) !important;
+  border-radius: 10px 10px 0 0 !important;
+  color: var(--vgc-text) !important;
+}
+.tabbar a.button.cur, .tabbar .button.cur {
+  background: linear-gradient(180deg, #2a75bb, #1b3f7a) !important;
+  border-color: var(--vgc-accent2) !important;
+  color: #fff !important;
+}
+
+/* ---- Menu chinh ---- */
+.mainmenu, .mainmenu-mini-windows {
+  background: transparent !important;
+}
+.menugroup {
+  background: var(--vgc-card) !important;
+  border: 1px solid var(--vgc-border) !important;
+  border-radius: var(--vgc-radius) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(2px);
+}
+.menugroup .heading, .menugroup h2, .mini-window-header {
+  color: var(--vgc-accent2) !important;
+  letter-spacing: 0.5px;
+}
+
+/* ---- Nut bam ---- */
+.button, button.button {
+  background: linear-gradient(180deg, #2a75bb, #1d4f86) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 10px !important;
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  transition: transform 0.08s ease, filter 0.12s ease;
+}
+.button:hover, button.button:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+}
+.button:active, button.button:active {
+  transform: translateY(0);
+}
+/* Nut danh tran / quan trong -> do */
+.bigbutton, .battle .bigbutton {
+  background: linear-gradient(180deg, #e3350d, #a32408) !important;
+}
+
+/* ---- Phong chat / battle ---- */
+.ps-room, .room {
+  background: transparent !important;
+}
+.ps-room-light, .battle-log, .chat-log {
+  background: rgba(8, 12, 26, 0.72) !important;
+  border: 1px solid var(--vgc-border);
+  border-radius: var(--vgc-radius);
+  color: var(--vgc-text);
+}
+.chat-log .username, .battle-log .username {
+  font-weight: 600;
+}
+/* Turn divider dep hon */
+.battle-log .turn {
+  background: linear-gradient(90deg, transparent, rgba(255, 203, 5, 0.25), transparent) !important;
+  border: none !important;
+  color: var(--vgc-accent2) !important;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ---- Teambuilder ---- */
+.teambuilder-results, .utilichart {
+  background: rgba(8, 12, 26, 0.85) !important;
+  color: var(--vgc-text);
+  border-radius: var(--vgc-radius);
+}
+.teambtn {
+  background: var(--vgc-card) !important;
+  border: 1px solid var(--vgc-border) !important;
+  border-radius: 10px !important;
+  color: var(--vgc-text) !important;
+}
+.teambtn:hover {
+  border-color: var(--vgc-accent2) !important;
+}
+
+/* ---- Popup / dialog ---- */
+.ps-popup, .ps-dialog {
+  background: linear-gradient(180deg, #1b2440, #0f1530) !important;
+  border: 1px solid var(--vgc-accent2) !important;
+  border-radius: 14px !important;
+  color: var(--vgc-text);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ---- Input ---- */
+input.textbox, textarea.textbox {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid var(--vgc-border) !important;
+  border-radius: 8px !important;
+  color: var(--vgc-text) !important;
+}
+input.textbox:focus, textarea.textbox:focus {
+  border-color: var(--vgc-accent2) !important;
+  outline: none;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2a75bb, #e3350d);
+  border-radius: 8px;
+}
+
+/* ---- Userlist ---- */
+.userlist {
+  background: rgba(8, 12, 26, 0.7) !important;
+  border-left: 1px solid var(--vgc-border);
+}
+
+/* ---- Link ---- */
+a { color: #7db4ff; }
+a:hover { color: var(--vgc-accent2); }
+
+/* ---- Battle background: toi hon cho noi sprite ---- */
+.battle, .battle .backdrop {
+  border-radius: var(--vgc-radius);
+}
