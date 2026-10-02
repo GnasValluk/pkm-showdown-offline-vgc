@@ -109,6 +109,8 @@ function patchIndexHtml() {
     h = h.replace('linkStyle("style/font-awesome.css");',
       'linkStyle("style/font-awesome.css");\n\t\tlinkStyle("style/custom-offline.css"); /* theme rieng offline - giu lai khi update */');
   }
+  // Chong cache trinh duyet: moi lan update doi version de client tai JS moi
+  h = h.replace(/src="(js\/[^"]+?)(\?offlinev=\d+)?"/g, 'src="$1?offlinev=3"');
   fs.writeFileSync(path.join(CLIENT_DIR, 'index.html'), h);
   log('Da patch client/index.html (offline, localhost:8000).');
 }
